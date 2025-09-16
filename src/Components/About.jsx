@@ -7,7 +7,7 @@ export default function About() {
         </div>
         <div className="flex flex-col justify-center items-center mb-20">
           <h1 className="text-primaryColor text-3xl font-bold my-10">
-            About Us
+            About Me
           </h1>
           <p className="text-greyDark text-lg">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima

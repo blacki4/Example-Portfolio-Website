@@ -3,19 +3,15 @@ import Typewriter from "typewriter-effect";
 export default function Home() {
   return (
     <div
-      className="w-full h-screen bg-cover bg-center"
+      className="w-full h-screen bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: "url('/images/home-bg.png')" }}
     >
       <div className="w-screen h-screen flex justify-center items-center flex-col">
-        <h1 className="text-white text-2xl">Hello, We Are</h1>
+        <h1 className="text-white text-2xl">Hello, I Am</h1>
         <h1 className="text-6xl text-primaryColor mt-3 font-bold">
           <Typewriter
             options={{
-              strings: [
-                "AI Company",
-                "Marketing Company",
-                "Development Company",
-              ],
+              strings: ["MALEK HASSOUNEH", "WEB DEVELOPER", "UI/UX DESIGNER"],
               autoStart: true,
               loop: true,
               delay: 100,

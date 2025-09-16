@@ -13,6 +13,9 @@ module.exports = {
         black: "#000",
         sliver: "#bac8d3",
       },
+      fontFamily: {
+        Montserrat: "'Montserrat', sans-serif",
+      },
     },
   },
   plugins: [],
