@@ -1,7 +1,10 @@
 export default function Blog() {
   return (
     <div className="h-[900px] bg-secondaryBackground flex justify-center items-center flex-col">
-      <h1 className="text-primaryColor text-3xl font-bold mb-20 -mt-[20px]">
+      <h1
+        className="text-primaryColor text-3xl font-bold mb-20 -mt-[20px]"
+        id="Blog"
+      >
         Blog
       </h1>
       <div className="flex justify-center items-center flex-wrap w-2/3 space-x-10">

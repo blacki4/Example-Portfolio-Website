@@ -8,7 +8,10 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 export default function Services() {
   return (
     <div className="bg-secondaryBackground flex flex-col justify-center items-center h-[800px]">
-      <h1 className="text-primaryColor text-3xl font-bold mb-20 -mt-10">
+      <h1
+        className="text-primaryColor text-3xl font-bold mb-20 -mt-10"
+        id="Services"
+      >
         Services
       </h1>
       <div>

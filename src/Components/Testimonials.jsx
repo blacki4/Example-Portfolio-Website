@@ -38,7 +38,10 @@ export default function Testimonials() {
       className="w-full bg-cover bg-center py-16 flex justify-center items-center h-[900px]"
     >
       <div className="w-full max-w-4xl flex flex-col items-center -mt-[120px]">
-        <h1 className="text-primaryColor text-3xl font-bold my-20">
+        <h1
+          className="text-primaryColor text-3xl font-bold my-20"
+          id="Testimonials"
+        >
           Testimonials
         </h1>
         <Slider {...settings} className="w-[1200px]">

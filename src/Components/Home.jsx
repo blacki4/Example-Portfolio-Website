@@ -7,7 +7,9 @@ export default function Home() {
       style={{ backgroundImage: "url('/images/home-bg.png')" }}
     >
       <div className="w-screen h-screen flex justify-center items-center flex-col">
-        <h1 className="text-white text-2xl">Hello, I Am</h1>
+        <h1 className="text-white text-2xl" id="Home">
+          Hello, I Am
+        </h1>
         <h1 className="text-6xl text-primaryColor mt-3 font-bold">
           <Typewriter
             options={{

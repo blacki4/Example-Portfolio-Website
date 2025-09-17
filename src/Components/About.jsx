@@ -6,7 +6,7 @@ export default function About() {
           <img src="/images/man.png" alt="Non" className="w-[100rem]" />
         </div>
         <div className="flex flex-col justify-center items-center mb-20">
-          <h1 className="text-primaryColor text-3xl font-bold my-10">
+          <h1 className="text-primaryColor text-3xl font-bold my-10" id="About">
             About Me
           </h1>
           <p className="text-greyDark text-lg">

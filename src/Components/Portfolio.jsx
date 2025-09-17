@@ -50,7 +50,9 @@ export default function Portfolio() {
 
   return (
     <div className="bg-secondaryBackground flex flex-col justify-center items-center h-[1500px]">
-      <h1 className="text-primaryColor text-3xl font-bold my-20">Portfolio</h1>
+      <h1 className="text-primaryColor text-3xl font-bold my-20" id="Portfolio">
+        Portfolio
+      </h1>
       <div className="flex justify-center items-center gap-20">
         <button
           className="w-fit px-10 py-5 rounded-full border border-solid border-primaryColor bg-secondaryBackground text-white text-lg hover:scale-110 duration-300"

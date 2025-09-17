@@ -6,6 +6,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { Link } from "react-scroll";
 
 export default function Header() {
   const [open, setOpen] = React.useState(false);
@@ -37,11 +38,22 @@ export default function Header() {
           "Blog",
           "Contact",
         ].map((text) => (
-          <a href={`#${text.toLowerCase()}`} className="w-full">
-            <ListItemButton className="justify-center hover:bg-primaryColor hover:text-primaryColor">
-              <ListItemText primary={text} className="text-center" />
+          <Link
+            key={text}
+            to={text}
+            smooth={true}
+            duration={500}
+            spy={true}
+            activeClass="text-primaryColor"
+            className="w-full cursor-pointer"
+          >
+            <ListItemButton className="justify-center hover:bg-primaryColor">
+              <ListItemText
+                primary={text.charAt(0).toUpperCase() + text.slice(1)}
+                className="text-center"
+              />
             </ListItemButton>
-          </a>
+          </Link>
         ))}
       </List>
       <Divider />
@@ -54,39 +66,95 @@ export default function Header() {
         <div className="text-4xl font-bold text-primaryColor">LOGO</div>
         <ul className="flex gap-8 text-xl text-greyDark max-xl:hidden">
           <li>
-            <a href="#" className="hover:text-primaryColor duration-300">
+            <Link
+              to={"Home"}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-500}
+              activeClass="text-primaryColor"
+              className="cursor-pointer hover:text-primaryColor duration-300"
+            >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-primaryColor duration-300">
+            <Link
+              to={"About"}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-100}
+              activeClass="text-primaryColor"
+              className="cursor-pointer hover:text-primaryColor duration-300"
+            >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-primaryColor duration-300">
+            <Link
+              to={"Services"}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-100}
+              activeClass="text-primaryColor"
+              className="cursor-pointer hover:text-primaryColor duration-300"
+            >
               Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-primaryColor duration-300">
+            <Link
+              to={"Portfolio"}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-100}
+              activeClass="text-primaryColor"
+              className="cursor-pointer hover:text-primaryColor duration-300"
+            >
               Portfolio
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-primaryColor duration-300">
+            <Link
+              to={"Testimonials"}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-100}
+              activeClass="text-primaryColor"
+              className="cursor-pointer hover:text-primaryColor duration-300"
+            >
               Testimonials
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-primaryColor duration-300">
+            <Link
+              to={"Blog"}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-100}
+              activeClass="text-primaryColor"
+              className="cursor-pointer hover:text-primaryColor duration-300"
+            >
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-primaryColor duration-300">
+            <Link
+              to={"Contact"}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-100}
+              activeClass="text-primaryColor"
+              className="cursor-pointer hover:text-primaryColor duration-300"
+            >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
         <button
