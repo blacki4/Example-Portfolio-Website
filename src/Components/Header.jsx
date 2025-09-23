@@ -64,7 +64,7 @@ export default function Header() {
     <div className="w-full h-20 bg-headingColor fixed z-10">
       <div className="w-4/6 mx-auto flex justify-between items-center h-full">
         <div className="text-4xl font-bold text-primaryColor">LOGO</div>
-        <ul className="flex gap-8 text-xl text-greyDark max-xl:hidden">
+        <ul className="flex gap-8 text-xl text-greyDark max-xl:hidden max-2xl:text-lg">
           <li>
             <Link
               to={"Home"}
