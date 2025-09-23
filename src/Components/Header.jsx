@@ -10,6 +10,27 @@ import { Link } from "react-scroll";
 
 export default function Header() {
   const [open, setOpen] = React.useState(false);
+  const [isLoaded, setIsLoaded] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    // Trigger initial animations
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 200);
+
+    // Handle scroll effect
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -21,6 +42,16 @@ export default function Header() {
     setOpen(open);
   };
 
+  const menuItems = [
+    "Home",
+    "About",
+    "Services",
+    "Portfolio",
+    "Testimonials",
+    "Blog",
+    "Contact",
+  ];
+
   const list = () => (
     <Box
       sx={{ width: "auto" }}
@@ -29,31 +60,35 @@ export default function Header() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {[
-          "Home",
-          "About",
-          "Services",
-          "Portfolio",
-          "Testimonials",
-          "Blog",
-          "Contact",
-        ].map((text) => (
-          <Link
+        {menuItems.map((text, index) => (
+          <div
             key={text}
-            to={text}
-            smooth={true}
-            duration={500}
-            spy={true}
-            activeClass="text-primaryColor"
-            className="w-full cursor-pointer"
+            className={`
+              transform transition-all duration-500 ease-out
+              ${
+                open
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-full opacity-0"
+              }
+            `}
+            style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <ListItemButton className="justify-center hover:bg-primaryColor">
-              <ListItemText
-                primary={text.charAt(0).toUpperCase() + text.slice(1)}
-                className="text-center"
-              />
-            </ListItemButton>
-          </Link>
+            <Link
+              to={text}
+              smooth={true}
+              duration={500}
+              spy={true}
+              activeClass="text-primaryColor"
+              className="w-full cursor-pointer"
+            >
+              <ListItemButton className="justify-center hover:bg-primaryColor transition-colors duration-300">
+                <ListItemText
+                  primary={text.charAt(0).toUpperCase() + text.slice(1)}
+                  className="text-center"
+                />
+              </ListItemButton>
+            </Link>
+          </div>
         ))}
       </List>
       <Divider />
@@ -61,108 +96,89 @@ export default function Header() {
   );
 
   return (
-    <div className="w-full h-20 bg-headingColor fixed z-10">
+    <div
+      className={`
+      w-full h-20 fixed top-0 left-0 transition-all duration-500 ease-out z-50
+      ${
+        isScrolled
+          ? "bg-headingColor/95 backdrop-blur-md shadow-2xl"
+          : "bg-headingColor"
+      }
+      ${isLoaded ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}
+    `}
+    >
       <div className="w-4/6 mx-auto flex justify-between items-center h-full">
-        <div className="text-4xl font-bold text-primaryColor">LOGO</div>
+        {/* Animated Logo */}
+        <div
+          className={`
+          text-4xl font-bold text-primaryColor cursor-pointer
+          transform transition-all duration-700 ease-out delay-300
+          hover:scale-110 hover:rotate-3
+          ${
+            isLoaded
+              ? "translate-x-0 opacity-100 rotate-0"
+              : "-translate-x-8 opacity-0 rotate-12"
+          }
+        `}
+        >
+          <span className="relative inline-block">
+            LOGO
+            {/* Glowing underline */}
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primaryColor transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></span>
+          </span>
+        </div>
+
+        {/* Desktop Navigation */}
         <ul className="flex gap-8 text-xl text-greyDark max-xl:hidden max-2xl:text-lg">
-          <li>
-            <Link
-              to={"Home"}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-500}
-              activeClass="text-primaryColor"
-              className="cursor-pointer hover:text-primaryColor duration-300"
+          {menuItems.map((item, index) => (
+            <li
+              key={item}
+              className={`
+                transform transition-all duration-600 ease-out
+                hover:scale-110
+                ${
+                  isLoaded
+                    ? "translate-y-0 opacity-100"
+                    : "-translate-y-4 opacity-0"
+                }
+              `}
+              style={{ transitionDelay: `${400 + index * 100}ms` }}
             >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"About"}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-100}
-              activeClass="text-primaryColor"
-              className="cursor-pointer hover:text-primaryColor duration-300"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"Services"}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-100}
-              activeClass="text-primaryColor"
-              className="cursor-pointer hover:text-primaryColor duration-300"
-            >
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"Portfolio"}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-100}
-              activeClass="text-primaryColor"
-              className="cursor-pointer hover:text-primaryColor duration-300"
-            >
-              Portfolio
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"Testimonials"}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-100}
-              activeClass="text-primaryColor"
-              className="cursor-pointer hover:text-primaryColor duration-300"
-            >
-              Testimonials
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"Blog"}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-100}
-              activeClass="text-primaryColor"
-              className="cursor-pointer hover:text-primaryColor duration-300"
-            >
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"Contact"}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-100}
-              activeClass="text-primaryColor"
-              className="cursor-pointer hover:text-primaryColor duration-300"
-            >
-              Contact
-            </Link>
-          </li>
+              <Link
+                to={item}
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={item === "Home" ? -500 : -100}
+                activeClass="text-primaryColor"
+                className="cursor-pointer hover:text-primaryColor duration-300 relative group"
+              >
+                {item}
+                {/* Animated underline */}
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primaryColor transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+              </Link>
+            </li>
+          ))}
         </ul>
+
+        {/* Mobile Menu Button */}
         <button
-          className="xl:hidden text-greyDark hover:text-primaryColor duration-300"
+          className={`
+            xl:hidden text-greyDark hover:text-primaryColor duration-300
+            transform transition-all ease-out delay-700
+            hover:scale-110 hover:rotate-180
+            ${
+              isLoaded
+                ? "translate-x-0 opacity-100 rotate-0"
+                : "translate-x-8 opacity-0 rotate-45"
+            }
+          `}
           onClick={toggleDrawer(true)}
         >
           <MenuIcon sx={{ fontSize: 30 }} />
         </button>
+
+        {/* Mobile Drawer */}
         <Drawer
           anchor="bottom"
           open={open}
@@ -171,12 +187,71 @@ export default function Header() {
             sx: {
               backgroundColor: "#2d2e2e",
               color: "#fff",
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px",
             },
           }}
+          className="z-50"
         >
           {list()}
         </Drawer>
       </div>
+
+      {/* Animated border bottom */}
+      <div
+        className={`
+        absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-transparent via-primaryColor to-transparent
+        transform transition-all duration-1000 ease-out delay-1000
+        ${isLoaded ? "w-full opacity-100" : "w-0 opacity-0"}
+      `}
+      ></div>
+
+      {/* Custom styles for enhanced animations */}
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            transform: translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes bounceIn {
+          0% {
+            transform: scale(0.3) rotate(0deg);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.1) rotate(180deg);
+          }
+          100% {
+            transform: scale(1) rotate(360deg);
+            opacity: 1;
+          }
+        }
+
+        .menu-item-enter {
+          animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .logo-bounce {
+          animation: bounceIn 0.8s ease-out;
+        }
+      `}</style>
     </div>
   );
 }
