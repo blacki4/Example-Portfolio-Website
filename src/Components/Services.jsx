@@ -52,7 +52,7 @@ export default function Services() {
           </div>
 
           {/* Service Card 3 */}
-          <div className="bg-primaryBackground p-4 sm:p-5 md:p-6 lg:p-8 rounded-lg hover:transform hover:scale-105 transition-transform duration-300">
+          <div className="bg-primaryBackground p-3 sm:p-5 md:p-6 lg:p-8 rounded-lg hover:transform hover:scale-105 transition-transform duration-300">
             <FormatSizeIcon
               sx={{
                 color: "#e0a80d",
