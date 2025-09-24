@@ -170,7 +170,7 @@ export default function Counter() {
                     </span>
 
                     <CountUp
-                      end={item.value}
+                      end={isVisible ? item.value : 0}
                       duration={3}
                       start={0}
                       className="relative z-10"
