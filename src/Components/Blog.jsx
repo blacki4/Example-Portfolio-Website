@@ -1,42 +1,45 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 
 export default function Blog() {
   const [isVisible, setIsVisible] = useState(false);
   const [animatedPosts, setAnimatedPosts] = useState([]);
   const sectionRef = useRef(null);
 
-  const blogPosts = [
-    {
-      id: 1,
-      image: "/images/blog/b1.png",
-      title: "Master These Awesome",
-      author: "Dorin Gray",
-      date: "Jun 27, 2025",
-      excerpt:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis labore, voluptatem commodi inventore omnis aperiam dolorem placeat",
-      delay: 0,
-    },
-    {
-      id: 2,
-      image: "/images/blog/b2.png",
-      title: "Best Design Items To Appeal",
-      author: "Dorin Gray",
-      date: "Jun 27, 2025",
-      excerpt:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis labore, voluptatem commodi inventore omnis aperiam dolorem placeat",
-      delay: 200,
-    },
-    {
-      id: 3,
-      image: "/images/blog/b3.png",
-      title: "The 20 Best Lightroom Presets",
-      author: "Dorin Gray",
-      date: "Jun 27, 2025",
-      excerpt:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis labore, voluptatem commodi inventore omnis aperiam dolorem placeat",
-      delay: 400,
-    },
-  ];
+  const blogPosts = useMemo(
+    () => [
+      {
+        id: 1,
+        image: "/images/blog/b1.png",
+        title: "Master These Awesome",
+        author: "Dorin Gray",
+        date: "Jun 27, 2025",
+        excerpt:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis labore, voluptatem commodi inventore omnis aperiam dolorem placeat",
+        delay: 0,
+      },
+      {
+        id: 2,
+        image: "/images/blog/b2.png",
+        title: "Best Design Items To Appeal",
+        author: "Dorin Gray",
+        date: "Jun 27, 2025",
+        excerpt:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis labore, voluptatem commodi inventore omnis aperiam dolorem placeat",
+        delay: 200,
+      },
+      {
+        id: 3,
+        image: "/images/blog/b3.png",
+        title: "The 20 Best Lightroom Presets",
+        author: "Dorin Gray",
+        date: "Jun 27, 2025",
+        excerpt:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis labore, voluptatem commodi inventore omnis aperiam dolorem placeat",
+        delay: 400,
+      },
+    ],
+    []
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -70,7 +73,7 @@ export default function Blog() {
         }, post.delay);
       });
     }
-  }, [isVisible]);
+  }, [isVisible, blogPosts]);
 
   return (
     <div
