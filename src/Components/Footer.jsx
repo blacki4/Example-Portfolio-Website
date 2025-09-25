@@ -32,7 +32,7 @@ export default function Footer() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [sectionRef]);
 
   const socialLinks = [
     {

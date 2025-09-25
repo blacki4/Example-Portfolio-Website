@@ -33,7 +33,7 @@ export default function Counter() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, [hasAnimated]);
+  }, [hasAnimated, sectionRef]);
 
   const counterItems = [
     {

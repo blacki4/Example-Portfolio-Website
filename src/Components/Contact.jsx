@@ -36,7 +36,7 @@ export default function Contact() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [sectionRef]);
 
   const contactInfo = [
     {

@@ -60,7 +60,7 @@ export default function Blog() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [sectionRef]);
 
   useEffect(() => {
     if (isVisible) {

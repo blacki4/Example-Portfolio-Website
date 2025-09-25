@@ -27,7 +27,7 @@ export default function About() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [sectionRef]);
 
   return (
     <div

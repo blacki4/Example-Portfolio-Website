@@ -68,7 +68,7 @@ export default function Portfolio() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [sectionRef]);
 
   useEffect(() => {
     if (isVisible) {
@@ -79,7 +79,7 @@ export default function Portfolio() {
         }, index * 150);
       });
     }
-  }, [isVisible, projectType]);
+  }, [isVisible, projectType, filteredProjects]);
 
   const filteredProjects =
     projectType === "All"

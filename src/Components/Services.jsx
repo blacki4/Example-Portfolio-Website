@@ -83,7 +83,7 @@ export default function Services() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [sectionRef]);
 
   return (
     <div
