@@ -47,6 +47,7 @@ export default function Portfolio() {
   ];
 
   useEffect(() => {
+    const currentRef = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -59,16 +60,21 @@ export default function Portfolio() {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [sectionRef]);
+
+  const filteredProjects =
+    projectType === "All"
+      ? projects
+      : projects.filter((p) => p.type === projectType);
 
   useEffect(() => {
     if (isVisible) {
@@ -80,11 +86,6 @@ export default function Portfolio() {
       });
     }
   }, [isVisible, projectType, filteredProjects]);
-
-  const filteredProjects =
-    projectType === "All"
-      ? projects
-      : projects.filter((p) => p.type === projectType);
 
   const categories = ["All", "Marketing", "Design", "Development"];
 
