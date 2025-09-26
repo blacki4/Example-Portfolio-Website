@@ -39,7 +39,7 @@ export default function Services() {
       icon: DonutSmallRoundedIcon,
       title: "Material UI",
       description:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab maiores dignissimos, molestias voluptas delectus exercitationem.",
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab maiores dignissimos, molestias voluptas delectus.",
       color: "#e0a80d",
       delay: 600,
     },

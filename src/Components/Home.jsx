@@ -67,7 +67,7 @@ export default function Home() {
           <div className="absolute inset-0 glow-effect opacity-60">
             <Typewriter
               options={{
-                strings: ["MALEK HASSOUNEH", "WEB DEVELOPER", "UI/UX DESIGNER"],
+                strings: ["EXAMPLE NAME", "WEB DEVELOPER", "UI/UX DESIGNER"],
                 autoStart: true,
                 loop: true,
                 delay: 100,
@@ -80,7 +80,7 @@ export default function Home() {
           <div className="relative z-10">
             <Typewriter
               options={{
-                strings: ["MALEK HASSOUNEH", "WEB DEVELOPER", "UI/UX DESIGNER"],
+                strings: ["EXAMPLE NAME", "WEB DEVELOPER", "UI/UX DESIGNER"],
                 autoStart: true,
                 loop: true,
                 delay: 100,

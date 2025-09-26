@@ -119,7 +119,7 @@ export default function Footer() {
       >
         <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold relative">
           <span className="relative inline-block">
-            MALEK HASSOUNEH
+            MADE BY MALEK HASSOUNEH
             {/* Animated underline */}
             <span
               className={`
@@ -138,7 +138,7 @@ export default function Footer() {
         `}
           style={{ transitionDelay: "500ms" }}
         >
-          Web Developer & UI/UX Designer
+          Web Developer
         </p>
       </div>
 
